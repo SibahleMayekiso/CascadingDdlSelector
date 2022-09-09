@@ -23,3 +23,32 @@ let cityList = [
     {continent: 'Africa', country: 'Lesotho', city: 'Thaba-Tseka'}  
 ];
 
+//DDL functionality
+//Continent selection
+for (let value of continentList) {
+    $('#continent').append(`<option value=${value.continent}>${value.continent}</option>`)
+}
+//Country selection
+$('#continent').on('change', () => {
+    $('#country').empty();
+    $('#country').append(`<option value='default'>Select a country</option>`);
+    let selectedContinent = $('#continent option:selected').text();
+
+    for (const value of countryList) {
+        if (value.continent === selectedContinent) {
+            $('#country').append(`<option value=${value.country}>${value.country}</option>`);
+        }
+    }
+})
+//City Selector
+$('#country').on("change", () =>{
+    $('#city').empty();
+    $('#city').append(`<option value='default'>Select a city</option>`);
+    let selectedCountry = $("#country option:selected").text();
+    
+    for (let value of cityList){
+        if (value.country === selectedCountry){
+            $('#city').append(`<option value=${value.city}>${value.city}</option>`);
+        }
+    }
+})
