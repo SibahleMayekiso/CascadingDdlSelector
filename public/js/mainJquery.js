@@ -196,3 +196,42 @@ const elementExists = (regionType, string, array) => {
   }
   return bFlag;
 };
+
+//Styling
+$("body").css({
+  display: "flex",
+  "justify-content": "center",
+  "align-items": "center",
+  "text-align": "center",
+  "min-height": "100vh",
+});
+$(".selector-container").css({
+  display: "flex",
+  "flex-direction": "column",
+  margin: "0 0 0 0",
+  width: "auto",
+  "max-width": "400px",
+  border: "2px solid rgba(0, 0, 0, 0.644)",
+  "border-radius": "5px",
+  padding: "5px",
+});
+
+$(".selector-container select").css({
+  "margin-left": "100px",
+  width: "200px",
+  "min-width": "50px",
+});
+$(".selector-item-container").css({
+  display: "flex",
+  "flex-direction": "column",
+  "align-items": "stretch",
+  width: "100%",
+});
+$(".selector-item").css({
+  display: "flex",
+  "justify-content": "space-between",
+});
+
+$(".item-modifier").css({
+  display: "block",
+});

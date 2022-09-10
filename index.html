@@ -6,32 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Location Selector | Sibahle Mayekiso</title>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <form class="selector-container">
         <div class="selector-item-container">
-            <label for="continent">Continent:</label>
-            <select id="continent" name="continent">
-                <option value='default'>Select a continent</option>
-            </select>
-        </div>
-        <span class="item-modifier" id="continentModifier">Creates new item...</span>
+            <div class="selector-item">
+                <label for="continent">Continent:</label>
+                <select id="continent" name="continent">
+                    <option value='default'>Select a continent</option>
+                </select>
+            </div>
+            <span class="item-modifier" id="continentModifier">Creates new item...</span>
+        </div>       
         
         <div class="selector-item-container">
-            <label for="country">Country:</label>
-            <select id="country" name="country">
-                <option value='default'>Select a country</option>                
-            </select>
-        </div>
-        <span class="item-modifier" id="countryModifier">Creates new item...</span>
+            <div class="selector-item">
+                <label for="country">Country:</label>
+                <select id="country" name="country">
+                    <option value='default'>Select a country</option>                
+                </select>
+            </div>           
+            <span class="item-modifier" id="countryModifier">Creates new item...</span>
+        </div>        
         
         <div class="selector-item-container">
-            <label for="city">City:</label>
-            <select id="city" name="city">
-                <option value='default'>Select a city</option>
-            </select>
-        </div>
-        <span class="item-modifier" id="cityModifier">Creates new item...</span>
+            <div class="selector-item">
+                <label for="city">City:</label>
+                <select id="city" name="city">
+                    <option value='default'>Select a city</option>
+                </select>
+            </div>          
+            <span class="item-modifier" id="cityModifier">Creates new item...</span>
+        </div>      
     </form>
 
     <script src="/js/mainJquery.js"></script>
