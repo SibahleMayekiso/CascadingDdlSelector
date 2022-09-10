@@ -69,23 +69,43 @@ $("#continentModifier").on("click", function () {
   );
   addContinent(userInput);
 });
+$("#countryModifier").on("click", function () {
+  //Appending a new item to the Continent list from the user's input
+  let userInput = prompt(
+    "Please enter the name of the Country you wish to add.\n" +
+      "\bPlease note: Only continents with valid alphabetic characters will be accepted\b"
+  );
+  addCountry(userInput);
+});
+$("#cityModifier").on("click", function () {
+  //Appending a new item to the Continent list from the user's input
+  let userInput = prompt(
+    "Please enter the name of the City you wish to add.\n" +
+      "\bPlease note: Only continents with valid alphabetic characters will be accepted\b"
+  );
+  addCity(userInput);
+});
 
 //Functions for modifying DDL contents
 
 function addContinent(input) {
   //Performing Error handling on the input data
   try {
-    if (input !== null && containsNumber(input) === false) {
-      let result = { continent: input };
-      continentList.push(result);
-      console.log(
-        `New item appended to DDL: Continent:\nData:\nNew item: ${result.continent}`
-      );
-      $("#continent").append(
-        `<option value=${result.continent}>${result.continent}</option>`
-      );
+    if (elementExists("continent", input, continentList) === true) {
+      throw "This Continent already exists";
     } else {
-      throw "Invalid String Formatting";
+      if (input !== null && containsNumber(input) === false) {
+        let result = { continent: input };
+        continentList.push(result);
+        console.log(
+          `New item appended to DDL: Continent:\nData:\nNew item: ${result.continent}`
+        );
+        $("#continent").append(
+          `<option value=${result.continent}>${result.continent}</option>`
+        );
+      } else {
+        throw "Invalid String Formatting";
+      }
     }
   } catch (er) {
     console.log(er);
@@ -93,16 +113,84 @@ function addContinent(input) {
   }
 }
 
-function addCountry(input) {}
+function addCountry(input) {
+  try {
+    if ($("#continent option:selected").text() == "Select a continent") {
+      $("#continent").focus();
+      throw "Please select a continent before adding a new Country";
+    } else if (elementExists("country", input, countryList) === true) {
+      throw "This Country already exists";
+    } else {
+      if (input !== null && containsNumber(input) === false) {
+        let result = {
+          continent: $("#continent option:selected").text(),
+          country: input,
+        };
+        countryList.push(result);
+        console.log(
+          `New item appended to DDL: Continent:\nData:\nNew item: ${result.country}`
+        );
+        $("#country").append(
+          `<option value=${result.country}>${result.country}</option>`
+        );
+      } else {
+        throw "Invalid String Formatting";
+      }
+    }
+  } catch (er) {
+    console.log(er);
+    alert(er);
+  }
+}
 
-function addCity(input) {}
+function addCity(input) {
+  try {
+    if ($("#country option:selected").text() == "Select a coountry") {
+      $("#country").focus();
+      throw "Please select a country before adding a new Country";
+    } else if (elementExists("city", input, cityList) === true) {
+      throw "This City already exists";
+    } else {
+      if (input !== null && containsNumber(input) === false) {
+        let result = {
+          continent: $("#continent option:selected").text(),
+          country: $("#country option:selected").text(),
+          city: input,
+        };
+        cityList.push(result);
+        console.log(
+          `New item appended to DDL: Continent:\nData:\nNew item: ${result.city}`
+        );
+        $("#city").append(
+          `<option value=${result.city}>${result.city}</option>`
+        );
+      } else {
+        throw "Invalid String Formatting";
+      }
+    }
+  } catch (er) {
+    console.log(er);
+    alert(er);
+  }
+}
 
 const containsNumber = (string) => {
-  //Creating this method for extra user input validation
+  //Creating this method to validate the user input.
   let bFlag = false;
   let strArr = string.split("");
   for (let element of strArr) {
     if (element / 1 == element) {
+      bFlag = true;
+    }
+  }
+  return bFlag;
+};
+
+const elementExists = (regionType, string, array) => {
+  //Creating this method to avoid duplicate data.
+  let bFlag = false;
+  for (let element of array) {
+    if (element[regionType] == string) {
       bFlag = true;
     }
   }
