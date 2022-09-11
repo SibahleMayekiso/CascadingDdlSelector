@@ -73,24 +73,24 @@ $(".item-modifier").mouseover(function () {
 $("#continentModifier").on("click", function () {
   //Appending a new item to the Continent list from the user's input
   let userInput = prompt(
-    "Please enter the name of the Continent you wish to add.\n" +
-      "\bPlease note: Only continents with valid alphabetic characters will be accepted\b"
+    "Please enter the name of the Continent you wish to add\n" +
+      "**Please note: Only continents with valid alphabetic characters will be accepted**"
   );
   addContinent(userInput);
 });
 $("#countryModifier").on("click", function () {
   //Appending a new item to the Continent list from the user's input
   let userInput = prompt(
-    "Please enter the name of the Country you wish to add.\n" +
-      "\bPlease note: Only continents with valid alphabetic characters will be accepted\b"
+    "Please enter the name of the Country you wish to add\n" +
+      "**Please note: Only countries with valid alphabetic characters will be accepted**"
   );
   addCountry(userInput);
 });
 $("#cityModifier").on("click", function () {
   //Appending a new item to the Continent list from the user's input
   let userInput = prompt(
-    "Please enter the name of the City you wish to add.\n" +
-      "\bPlease note: Only continents with valid alphabetic characters will be accepted\b"
+    "Please enter the name of the City you wish to add\n" +
+      "**Please note: Only cities with valid alphabetic characters will be accepted**"
   );
   addCity(userInput);
 });
