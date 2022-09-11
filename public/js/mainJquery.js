@@ -35,7 +35,7 @@ $("#continent").on("change", function () {
   $("#country").empty();
   $("#city").empty();
   $("#country").append(`<option value='default'>Select a country</option>`);
-  $("#city").append(`<option value='default'>Select a country</option>`);
+  $("#city").append(`<option value='default'>Select a city</option>`);
   let selectedContinent = $("#continent option:selected").text();
 
   for (const value of countryList) {
