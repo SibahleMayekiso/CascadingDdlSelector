@@ -145,7 +145,7 @@ function addCountry(input) {
 
 function addCity(input) {
   try {
-    if ($("#country option:selected").text() == "Select a coountry") {
+    if ($("#country option:selected").text() == "Select a country") {
       $("#country").focus();
       throw "Please select a country before adding a new Country";
     } else if (elementExists("city", input, cityList) === true) {
@@ -200,12 +200,14 @@ const elementExists = (regionType, string, array) => {
 //Styling
 $("nav").css({
   "max-height": "50px",
+  padding: "5px",
 });
 $("nav h1").css({
   "margin-top": "0px",
   "margin-bottom": "0px",
 });
 $("body").css({
+  margin: "0px",
   display: "flex",
   "justify-content": "flex-start",
   "align-items": "center",
@@ -220,7 +222,7 @@ $(".selector-container").css({
   width: "auto",
   "max-width": "400px",
   border: "2px solid rgba(0, 0, 0, 0.644)",
-  "border-radius": "5px",
+  "border-radius": "10px",
   padding: "5px",
 });
 
@@ -228,6 +230,8 @@ $(".selector-container select").css({
   "margin-left": "100px",
   width: "200px",
   "min-width": "50px",
+  "background-color": "transparent",
+  "border-radius": "5px",
 });
 $(".selector-item-container").css({
   display: "flex",
