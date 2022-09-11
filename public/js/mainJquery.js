@@ -198,12 +198,20 @@ const elementExists = (regionType, string, array) => {
 };
 
 //Styling
+$("nav").css({
+  "max-height": "50px",
+});
+$("nav h1").css({
+  "margin-top": "0px",
+  "margin-bottom": "0px",
+});
 $("body").css({
   display: "flex",
-  "justify-content": "center",
+  "justify-content": "flex-start",
   "align-items": "center",
   "text-align": "center",
   "min-height": "100vh",
+  "flex-direction": "column",
 });
 $(".selector-container").css({
   display: "flex",
