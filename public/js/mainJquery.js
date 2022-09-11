@@ -60,7 +60,16 @@ $("#country").on("change", function () {
 });
 
 //New item functionality
-
+$(".item-modifier").mouseover(function () {
+  $(this).css({
+    color: "rgba(164, 89, 137, 0.795)",
+  });
+  $(this).mouseleave(function () {
+    $(this).css({
+      color: "initial",
+    });
+  });
+});
 $("#continentModifier").on("click", function () {
   //Appending a new item to the Continent list from the user's input
   let userInput = prompt(
